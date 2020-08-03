@@ -50,3 +50,17 @@ BEGIN
         END_IF
     END_IF
 END
+
+FUNCTION isfull(root:^BT) : BOOLEAN
+BEGIN
+    IF (root = NULL) THEN
+        RETURN TRUE;
+    END_IF
+    IF (root^.LC = NULL AND root^.RC = NULL) THEN
+        RETURN TRUE;
+    END_IF
+    IF(root^.LC <>NULL AND root^.RC <>NULL) THEN
+        RETURN isfull(root^.LC) AND isfull(root^.RC);
+    END_IF
+    RETURN FALSE;
+END
