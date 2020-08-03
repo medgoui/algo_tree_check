@@ -36,4 +36,17 @@ BEGIN
     END_IF
 END
 
-
+FUNCTION maximum_val(root:^BT) : INTEGER
+BEGIN
+    IF (root <> NULL) THEN
+        IF (root^.LC = NULL AND root^.RC = NULL) THEN
+            RETURN root^.VAL;
+        ELSE_IF(root^.LC = NULL) THEN
+            RETURN max(root^.VAL,maximum_val(root^.RC));
+        ELSE_IF(root^.RC = NULL) THEN
+            RETURN max(root^.VAL,maximum_val(root^.LC));
+        ELSE
+            RETURN max(maximum_val(root^.LC),maximum_val(root^.RC));
+        END_IF
+    END_IF
+END
