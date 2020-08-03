@@ -1,0 +1,9 @@
+FUNCTION number_of_nodes(root: ^BT) : INTEGER
+BEGIN
+    IF (root = NULL) THEN
+        RETURN 0;
+    ELSE
+        RETURN 1 + number_of_nodes(root^.LC) + number_of_nodes(root^.RC);
+    END_IF
+END
+
