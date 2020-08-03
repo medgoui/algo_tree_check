@@ -25,3 +25,11 @@ BEGIN
     END_IF
 END
 
+FUNCTION numb_leaves(root: ^BT) : INTEGER
+BEGIN
+    IF (root = NULL) THEN
+        RETURN 0;
+    ELSE
+        RETURN numb_leaves(root^.LC) + numb_leaves(root^.RC);
+    END_IF
+END
