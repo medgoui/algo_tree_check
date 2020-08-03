@@ -7,3 +7,21 @@ BEGIN
     END_IF
 END
 
+FUNCTION max(a,b: INTEGER) : INTEGER;
+BEGIN
+    IF (a > b) THEN
+        RETURN a;
+    ELSE
+        RETURN b;
+    END_IF
+END
+
+FUNCTION height(root : ^BT) : INTEGER
+BEGIN
+    IF(root = NULL) THEN
+        RETURN 0;
+    ELSE
+        RETURN 1 + max(height(root^.LC),height(root^.RC));
+    END_IF
+END
+
